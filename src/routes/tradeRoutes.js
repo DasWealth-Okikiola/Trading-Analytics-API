@@ -113,6 +113,95 @@ const authMiddleware = require("../middleware/authMiddleware");
  *         description: Strategy stats
  */
 
+/**
+ * @swagger
+ * /api/trades:
+ *   post:
+ *     summary: Create a new trade
+ *     description: Log a new trade with automatic profit/loss calculation based on trade details
+ *     tags: [Trades]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - market
+ *               - pair
+ *               - direction
+ *               - entryPrice
+ *               - exitPrice
+ *               - lotSize
+ *             properties:
+ *               market:
+ *                 type: string
+ *                 example: crypto
+ *               pair:
+ *                 type: string
+ *                 example: BTC/USDT
+ *               direction:
+ *                 type: string
+ *                 example: buy
+ *               entryPrice:
+ *                 type: number
+ *                 example: 40000
+ *               exitPrice:
+ *                 type: number
+ *                 example: 42000
+ *               lotSize:
+ *                 type: number
+ *                 example: 1
+ *               strategy:
+ *                 type: string
+ *                 example: breakout
+ *               notes:
+ *                 type: string
+ *                 example: Clean breakout on resistance
+ *     responses:
+ *       201:
+ *         description: Trade created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 user:
+ *                   type: string
+ *                 market:
+ *                   type: string
+ *                 pair:
+ *                   type: string
+ *                 direction:
+ *                   type: string
+ *                 entryPrice:
+ *                   type: number
+ *                 exitPrice:
+ *                   type: number
+ *                 lotSize:
+ *                   type: number
+ *                 strategy:
+ *                   type: string
+ *                 notes:
+ *                   type: string
+ *                 profitLoss:
+ *                   type: number
+ *                 outcome:
+ *                   type: string
+ *                   example: win
+ *                 createdAt:
+ *                   type: string
+ *                 updatedAt:
+ *                   type: string
+ *       400:
+ *         description: Missing or invalid input data
+ *       401:
+ *         description: Unauthorized (No token or invalid token)
+ */
 
 // @route POST /api/trades
 router.post("/", authMiddleware, createTrade);
