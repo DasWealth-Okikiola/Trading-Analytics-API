@@ -19,10 +19,10 @@ A backend API for tracking and analyzing trading performance.
 - Swagger
 
 ## 📘 API Docs
-Visit: /api-docs
+Visit: https://trading-analytics-api.onrender.com/api-docs/
 
 ## 🌐 Live URL
-Coming soon (Render deployment)
+https://trading-analytics-api.onrender.com
 
 ## ⚙️ Setup
 ```bash
