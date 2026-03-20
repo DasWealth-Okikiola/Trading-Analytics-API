@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://my-jobs-api-8ybm.onrender.com/api-docs",
+        url: "https://trading-analytics-api.onrender.com/api-docs/",
         description: "Development server",
       },
     ],
