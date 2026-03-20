@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "https://my-jobs-api-8ybm.onrender.com/api-docs",
         description: "Development server",
       },
     ],
